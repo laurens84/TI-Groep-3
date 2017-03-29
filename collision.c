@@ -1,9 +1,15 @@
-// test
+void stop(void){
+	motor[motorB] = 0;
+	motor[motorC] = 0;
+}
 
-task collision(){
-	while(1){
-		if (SensorValue[S3] < 30) object = 1;
-		else object = 0;
-		delay(100);
+void collision(){
+	if (SensorValue[S3] < 30){
+		stop();
+		motor[motorA] = 15;
+		delay(500);
+		motor[motorA] = 0;
+
 	}
+	else return;
 }

@@ -1,7 +1,3 @@
-#pragma config(Sensor, S1,     BWsensor,       sensorLightActive)
-#pragma config(Sensor, S2,     RGBsensor,      sensorColorNxtRED)
-int speed_right = 25;
-int speed_left = 25;
 void Aandrijving(bool sensor_left,bool sensor_right)
 
 {

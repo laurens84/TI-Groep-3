@@ -1,36 +1,4 @@
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//                                    Bluetooth Sample Program
-//
-// ROBOTC provides easy send and receive of messages over Bluetooth. This sample program illustrate the
-// basic concept. Bluetooth error checking has been removed from the program to make it easier to
-// follow the program logic.
-//
-// There are other sample programs in the ROBOTC distribution that include Bluetooth using error
-// checking.
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#pragma platform(NXT)
-
-long nLastXmitTimeStamp = nPgmTime;
-long nDeltaTime         = 0;
-
-const int kMaxSizeOfMessage = 30;
-const int INBOX = 5;
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//                                        Receive Messages Task
-//
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-task readBluetooth()
+task bluetooth()
 {
   TFileIOResult nBTCmdRdErrorStatus;
   int nSizeOfMessage;
@@ -50,13 +18,23 @@ task readBluetooth()
     	string s = "";
     	stringFromChars(s, (char *) nRcvBuffer);
     	displayCenteredBigTextLine(4, s);
+    	if (s == "LEFT"){
+    		turnLeft(250,degrees,50);
+    		//moveMotor(motorB, 540, degrees, 100);
+    		//moveMotor(motorC, -540, degrees, 100);
+    	}else if (s == "RIGHT"){
+    		turnRight(250,degrees,50);
+    	}else if (s == "UP"){
+    		setMultipleMotors(+100, motorB, motorC);
+    	}else if (s == "DOWN"){
+    	setMultipleMotors(-100, motorB, motorC);
+    	}else{
+    		stopAllMotors();
+			}
     }
+  }
     wait1Msec(100);
 
-  }
+
   return;
 }
-
-task blueDo()
-{
-

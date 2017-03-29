@@ -5,7 +5,7 @@ void stop(void){
 
 void collision(){
 	if (SensorValue[S3] < 30){
-		stop();
+		rem(SensorValue[S3]);
 		motor[motorA] = 15;
 		delay(500);
 		motor[motorA] = 0;

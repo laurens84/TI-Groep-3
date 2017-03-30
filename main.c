@@ -3,11 +3,13 @@
 #pragma config(Sensor, S3,     sonar,          sensorSONAR)
 #pragma config(Motor,  motorB,          rightMotor,    tmotorNXT, PIDControl, driveLeft, encoder)
 #pragma config(Motor,  motorC,          leftMotor,     tmotorNXT, PIDControl, driveRight, encoder)
+#pragma platform(NXT)
 
 #include "header.c"
 
 task main() {
   while (1) {
+  	startTask(bluetooth);
     collision();
     Aandrijving(leftSensor(), rightSensor());
   }

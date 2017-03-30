@@ -1,3 +1,9 @@
+	//#pragma platform(NXT)
+	//long nLastXmitTimeStamp = nPgmTime;
+	//long nDeltaTime         = 0;
+	//const int kMaxSizeOfMessage = 30;
+	//const int INBOX = 5;
+
 task bluetooth()
 {
   TFileIOResult nBTCmdRdErrorStatus;
@@ -19,20 +25,18 @@ task bluetooth()
     	stringFromChars(s, (char *) nRcvBuffer);
     	displayCenteredBigTextLine(4, s);
     	if (s == "LEFT"){
-    		btCmd = "L";
+    		btCmd = 'L';
     	}else if (s == "RIGHT"){
-    		btCmd = "R";
+    		btCmd = 'R';
     	}else if (s == "UP"){
-    		btCmd = "U";
+    		btCmd = 'U';
     	}else if (s == "DOWN"){
-    	btCmd = "D";
+    	btCmd = 'D';
     	}else{
     		btCmd = 0;
 			}
     }
   }
     wait1Msec(100);
-
-
   return;
 }

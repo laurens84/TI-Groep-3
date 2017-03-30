@@ -4,9 +4,7 @@ void stop (){
 }
 
 void collision(){
-	if (SensorValue[S3] < 30){
-		//rem(SensorValue[S3]);
-		stop();
+	while (SensorValue[S3] < 30) stop();
 	}
 	else return;
 }

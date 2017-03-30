@@ -8,5 +8,10 @@ void rem(int afstand){
 			motor[motorC] = speed_right;
 			clearTimer(T1);
 		}
-	}
+			speed_left = 0;
+			speed_right = 0;
+			motor[motorB] = speed_left;
+			motor[motorC] = speed_right;
+		}
+
 }

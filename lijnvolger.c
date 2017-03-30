@@ -1,4 +1,6 @@
 void Aandrijving(bool sensor_left,bool sensor_right){
+if (time1[T2] > 25){
+clearTimer(T2);
 if (sensor_right == true && speed_right >= 5 ){
 		speed_right -= 1;
 		speed_left += 1;
@@ -16,4 +18,5 @@ if (sensor_right == true && speed_right >= 5 ){
 	}
 	motor[motorB] = speed_left;
 	motor[motorC] = speed_right;
+}
 }

@@ -1,5 +1,6 @@
 int speed_right = 25;
 int speed_left = 25;
+int btCmd=0;
 
 //variables voor bluetooth.c
 //long nLastXmitTimeStamp = nPgmTime;

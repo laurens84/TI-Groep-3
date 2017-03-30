@@ -4,5 +4,5 @@ void stop (){
 }
 
 void collision(){
-	while (SensorValue[S3] < 30) stop();
+	while (SensorValue[S3] < 30) rem(SensorValue[S3]);
 }

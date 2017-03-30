@@ -19,17 +19,15 @@ task bluetooth()
     	stringFromChars(s, (char *) nRcvBuffer);
     	displayCenteredBigTextLine(4, s);
     	if (s == "LEFT"){
-    		turnLeft(250,degrees,50);
-    		//moveMotor(motorB, 540, degrees, 100);
-    		//moveMotor(motorC, -540, degrees, 100);
+    		btCmd = "L";
     	}else if (s == "RIGHT"){
-    		turnRight(250,degrees,50);
+    		btCmd = "R";
     	}else if (s == "UP"){
-    		setMultipleMotors(+100, motorB, motorC);
+    		btCmd = "U";
     	}else if (s == "DOWN"){
-    	setMultipleMotors(-100, motorB, motorC);
+    	btCmd = "D";
     	}else{
-    		stopAllMotors();
+    		btCmd = 0;
 			}
     }
   }

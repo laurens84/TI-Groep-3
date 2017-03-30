@@ -1,4 +1,4 @@
-#define BWBLACK 50	//Black
+#define BWBLACK 55	//Black
 #define RGBBLACK 30	//Black
 
 bool leftSensor()

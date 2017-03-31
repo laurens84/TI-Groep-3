@@ -1,5 +1,5 @@
-int speed_right = 25;
-int speed_left = 25;
+int speed_right = 0;
+int speed_left = 0;
 int btCmd = 0;
 int sound = 0;
 
@@ -19,5 +19,4 @@ int sensorstate = 0;
 #include "rem.c"
 #include "sounds.c"
 #include "collision.c"
-#include "lijnvolger.c"
-#include "OldSensor.c"
+#include "linefollower.c"

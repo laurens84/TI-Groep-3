@@ -12,6 +12,6 @@ task main() {
   while (1) {
   	startTask(bluetooth);
     collision();
-    Aandrijving(leftSensor(), rightSensor());
+    lineFollower(leftSensorSpeed(), rightSensorSpeed());
   }
 }

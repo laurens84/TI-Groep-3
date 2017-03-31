@@ -15,7 +15,7 @@ void look(int d) {
 			motor[motorA] = 85;
 			while (nMotorRunState[motorA] != runStateIdle);
 		}
-		sensorstate = 0;
+		sensorstate = front;
 	}
 	else if (d == left){
 		if (sensorstate == front){
@@ -28,7 +28,7 @@ void look(int d) {
 			motor[motorA] = 85;
 			while (nMotorRunState[motorA] != runStateIdle);
 		}
-		sensorstate = 1;
+		sensorstate = left;
 	}
 	else if (d == right){
 		if (sensorstate == front){
@@ -41,10 +41,10 @@ void look(int d) {
 			motor[motorA] = -85;
 			while (nMotorRunState[motorA] != runStateIdle);
 		}
-		sensorstate = 2;
+		sensorstate = right;
 	}
 }
 
 void collision() {
-	while (SensorValue[S3] < 30) stop();
+	while (SensorValue[S3] < 30) rem(SensorValue[S3]);
 }

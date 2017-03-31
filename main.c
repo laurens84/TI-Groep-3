@@ -8,9 +8,10 @@
 #include "header.c"
 
 task main() {
+  changeSpeedRampingParms(motorA, 15, 5, 15, 5);
   while (1) {
   	startTask(bluetooth);
     collision();
-    Aandrijving(leftSensor(), rightSensor());
+    lineFollower(leftSensorSpeed(), rightSensorSpeed());
   }
 }

@@ -64,13 +64,13 @@ task playSecret(int plays){
 		{Gsh_5, Sixteenth},
 		{C_5, Sixteenth},
 	};
-	for (int p=0; p<plays;p++){
+	//for (int p=0; p<plays;p++){
 		for (int i=0; i<8; i++){ //change the "i<n" to the new number of notes in the piece
 			playTone(secret[i][0], secret[i][1]);
 			while(bSoundActive);
 			wait1Msec(20);
 		}
-	}
+	//}
 }
 
 task playSirene(int plays){
@@ -83,13 +83,13 @@ task playSirene(int plays){
 		{G_3, 100},
 
 	};
-	for (int p=0; p<plays;p++){
+	//for (int p=0; p<plays;p++){
 		for (int i=0; i<4; i++){ //change the "i<n" to the new number of notes in the piece
 			playTone(sirene[i][0], sirene[i][1]);
 			while(bSoundActive);
 			wait1Msec(20);
 		}
-	}
+	//}
 }
 task playTetris(int plays){
 	int tetris[][]=
@@ -134,7 +134,8 @@ task playTetris(int plays){
 		{A_4, Q},
 
 	};
-	for (int p=0; p<plays;p++){
+	//for (int p=0; p<plays;p++){
+	while (true){								//loop is broken via thread killing
 		for (int i=0; i<38; i++){ //change the "i<n" to the new number of notes in the piece
 			playTone(tetris[i][0], tetris[i][1]);
 			while(bSoundActive);
@@ -144,4 +145,4 @@ task playTetris(int plays){
 	}
 }
 
-  //2e deelD_5, F_5, A_5, G_5, F_5, E_5, C_5, E_5, D_5, C_5, B_4, B_4, C_5, D_5, E_5, C_5, A_4, A_4, _R,
+  //2e deel D_5, F_5, A_5, G_5, F_5, E_5, C_5, E_5, D_5, C_5, B_4, B_4, C_5, D_5, E_5, C_5, A_4, A_4,

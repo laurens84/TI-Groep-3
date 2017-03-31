@@ -1,3 +1,8 @@
+/*
+	Author: Glenn Koning
+	
+*/
+
 #define BWMIN 50	//Black
 #define BWMAX 80	//White
 

@@ -1,5 +1,11 @@
 //functie die remt
 void rem(int afstand){
+if (afstand <= 7){
+	speed_left = 0;
+			speed_right = 0;
+			motor[motorB] = speed_left;
+			motor[motorC] = speed_right;
+}
 clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
 	//om de duizend microseconde word de snelheid bij gewerkt.
@@ -23,5 +29,4 @@ clearTimer(T1);
 			speed_right = 0;
 			motor[motorB] = speed_left;
 			motor[motorC] = speed_right;
-		delay(2000);
 		}

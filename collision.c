@@ -48,13 +48,13 @@ int look(int d) {
 }
 
 void collision() {
+	if (sound == 1) {
+		stopTask(playTetris);
+		sound = 0;
+	}
 	while (SensorValue[S3] < 30) {
 		if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
 			rem(SensorValue[S3]);
-		}
-		if (sound == 1) {
-			stopTask(playTetris);
-			sound = 0;
 		}
 	}
 	if (sound == 0) {

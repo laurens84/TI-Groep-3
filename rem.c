@@ -4,7 +4,6 @@ clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
 	//om de duizend microseconde word de snelheid bij gewerkt.
 	if (time1[T1] > 350){
-			//
 			speed_left = speed_left - (30/ afstand) * 10;
 			speed_right = speed_right - (30/ afstand) * 10;
 

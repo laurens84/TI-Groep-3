@@ -1,6 +1,12 @@
-// FreSixteenthuency (note)
-// Example: A_3 is A in the third octave
-// Ash_3 is A# in the third octave
+/*
+Author: Quentin Hoogwerf
+
+Songs are executable functions. Argument parameter is amount of times song should be looped
+Eg.: playSirene(3) loops the siren sound 3 times.
+
+Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
+*/
+
 #define C_3 261
 #define Csh_3 275
 #define D_3 293
@@ -134,13 +140,8 @@ void playTetris(int plays){
 			while(bSoundActive);
 			wait1Msec(20);
 		}
+		wait10Msec(1);
 	}
 }
 
   //2e deelD_5, F_5, A_5, G_5, F_5, E_5, C_5, E_5, D_5, C_5, B_4, B_4, C_5, D_5, E_5, C_5, A_4, A_4, _R,
-
-
-task main()
-{
-playTetris(1);
-}

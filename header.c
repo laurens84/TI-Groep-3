@@ -19,3 +19,4 @@ int sensorstate = 0;
 #include "collision.c"
 #include "lijnvolger.c"
 #include "OldSensor.c"
+#include "sounds.c

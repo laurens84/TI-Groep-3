@@ -1,4 +1,21 @@
-	//#pragma platform(NXT)
+/*
+	Author: Quentin Hoogwerf
+	Starts loop which polls for new message every 100ms. Depending on what message is sent with Bluetooth Android app (available from HU Sharepoint),
+	global variable 'btCmd' value is changed:
+
+	Bt message	Variable
+	LEFT: 			'L'
+	Right:			'R'
+	UP:					'U'
+	DOWN:				'D'
+	FIRE:				 0
+	A:					 0
+	B:					 0
+	C:					 0
+
+*/
+
+#pragma platform(NXT)
 	//long nLastXmitTimeStamp = nPgmTime;
 	//long nDeltaTime         = 0;
 	//const int kMaxSizeOfMessage = 30;
@@ -31,7 +48,7 @@ task bluetooth()
     	}else if (s == "UP"){
     		btCmd = 'U';
     	}else if (s == "DOWN"){
-    	btCmd = 'D';
+    		btCmd = 'D';
     	}else{
     		btCmd = 0;
 			}

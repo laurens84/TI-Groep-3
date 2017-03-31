@@ -51,7 +51,7 @@ Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 #define E 13
 #define Sixteenth 8
 
-void playSecret(int plays){
+task playSecret(int plays){
 
 	int secret[][]=
 	{
@@ -73,7 +73,7 @@ void playSecret(int plays){
 	}
 }
 
-void playSirene(int plays){
+task playSirene(int plays){
 
 	int sirene[][]=
 	{
@@ -91,7 +91,7 @@ void playSirene(int plays){
 		}
 	}
 }
-void playTetris(int plays){
+task playTetris(int plays){
 	int tetris[][]=
 	{
 		{E_5, Q},

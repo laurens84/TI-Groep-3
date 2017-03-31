@@ -49,6 +49,8 @@ task bluetooth()
     		btCmd = 'U';
     	}else if (s == "DOWN"){
     		btCmd = 'D';
+    	}else if (s == "C"){
+    		btCmd = 'C';
     	}else{
     		btCmd = 0;
 			}

@@ -1,6 +1,6 @@
 /*
 	Author: Glenn Koning
-	
+
 */
 
 #define BWMIN 50	//Black
@@ -13,7 +13,6 @@
 #define LOW_SPEED 5
 
 #define STOP 0
-#define DELAY 5
 
 int leftSensorSpeed() // BWsensor
 {

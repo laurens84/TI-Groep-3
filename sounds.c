@@ -50,6 +50,25 @@ Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 #define E 13
 #define Sixteenth 8
 
+task playPause(){
+
+	int pause[][]=
+	{
+		{E_5, Sixteenth},
+		{C_5, Sixteenth},
+		{E_5, Sixteenth},
+		{C_5, E}
+	};
+	//for (int p=0; p<plays;p++){
+		for (int i=0; i<4; i++){ //change the "i<n" to the new number of notes in the piece
+			playTone(pause[i][0], pause[i][1]);
+			while(bSoundActive) {}
+			wait1Msec(20);
+		}
+	//}
+}
+
+
 task playSecret(){
 
 	int secret[][]=
@@ -93,11 +112,7 @@ task playSirene(){
 task playTetris(){
 	int tetris[][]=
 	{
-
-
-
-
-	{E_5, Q},
+		{E_5, Q},
 		{B_4, E},
 		{C_5, E},
 		{D_5, Q},
@@ -162,4 +177,10 @@ task playTetris(){
 		}
 		wait10Msec(1);
 	}
+}
+
+// test
+task main(){
+	startTask(playPause);
+	delay(30000);
 }

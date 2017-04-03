@@ -1,4 +1,10 @@
-/// \mainpage Author Information
+#pragma config(Sensor, S1,     RGBLsensor,       sensorColorNxtRED)
+#pragma config(Sensor, S2,     RGBRsensor,      sensorColorNxtRED)
+#pragma config(Sensor, S3,     sonar,          sensorSONAR)
+#pragma config(Motor,  motorB,          rightMotor,    tmotorNXT, PIDControl, driveLeft, encoder)
+#pragma config(Motor,  motorC,          leftMotor,     tmotorNXT, PIDControl, driveRight, encoder)
+#pragma platform(NXT)
+
 /// \section Information
 ///
 ///     Name:          main.c
@@ -9,13 +15,6 @@
 /// \section doxygen How it works?
 ///
 /// This is the code where the hardware is defined and the robot will be started.
-
-#pragma config(Sensor, S1,     RGBLsensor,       sensorColorNxtRED)
-#pragma config(Sensor, S2,     RGBRsensor,      sensorColorNxtRED)
-#pragma config(Sensor, S3,     sonar,          sensorSONAR)
-#pragma config(Motor,  motorB,          rightMotor,    tmotorNXT, PIDControl, driveLeft, encoder)
-#pragma config(Motor,  motorC,          leftMotor,     tmotorNXT, PIDControl, driveRight, encoder)
-#pragma platform(NXT)
 
 #include "header.c"
 

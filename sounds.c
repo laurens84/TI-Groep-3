@@ -46,7 +46,7 @@ Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 #define Dwhole 200
 #define W 100 // WHOLE
 #define H 50 //half
-//#define Q 25 //Quarter
+#define Q 25 //Quarter
 #define E 13
 #define Sixteenth 8
 

@@ -2,10 +2,6 @@
 	Author: Glenn Koning
 
 */
-
-#define BWMIN 50	//Black
-#define BWMAX 80	//White
-
 #define RGBMIN 20	//Black
 #define RGBMAX 60	//White
 
@@ -16,21 +12,21 @@
 
 int leftSensorSpeed() // BWsensor
 {
-	if (SensorValue[BWsensor] <= BWMIN){
+	if (SensorValue[RGBLsensor] <= RGBMIN){
 		return LOW_SPEED;
 	}
 	else {
-		return (int)((((float)SensorValue[BWsensor] - BWMIN) / (BWMAX-BWMIN)) * TOP_SPEED);
+		return (int)((((float)SensorValue[RGBLsensor] - RGBMIN) / (RGBMAX-RGBMIN)) * TOP_SPEED);
 	}
 }
 
 int rightSensorSpeed() // RGBsensor
 {
-	if (SensorValue[RGBsensor] <= RGBMIN){
+	if (SensorValue[RGBRsensor] <= RGBMIN){
 		return LOW_SPEED;
 	}
 	else {
-		return (int)((((float)SensorValue[RGBsensor] - RGBMIN) / (RGBMAX-RGBMIN)) * TOP_SPEED);
+		return (int)((((float)SensorValue[RGBRsensor] - RGBMIN) / (RGBMAX-RGBMIN)) * TOP_SPEED);
 	}
 }
 

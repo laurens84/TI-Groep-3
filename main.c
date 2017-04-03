@@ -11,12 +11,16 @@ task main() {
   changeSpeedRampingParms(motorA, 15, 5, 15, 5);
   startTask(bluetooth);
   while (1) {
-    while(btCmd != 0) {
+    while(btCmd == 0) {
       collision();
       lineFollower(leftSensorSpeed(), rightSensorSpeed());
     }
     if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
 			rem(30);
+		}
+    if (sound == 1) {
+			stopTask(playTetris);
+			sound = 0;
 		}
   }
 }

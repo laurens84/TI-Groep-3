@@ -1,21 +1,20 @@
-/// \mainpage Author Information
-/// \section Information
-///
-///     Name:          main.c
-///     Author:        Laurens van der Sluis
-///     Studentnumber: 1703647
-///     Date:          29-2-2017
-///
-/// \section doxygen How it works?
-///
-/// This is the code where the hardware is defined and the robot will be started.
-
 #pragma config(Sensor, S1,     RGBLsensor,       sensorColorNxtRED)
 #pragma config(Sensor, S2,     RGBRsensor,      sensorColorNxtRED)
 #pragma config(Sensor, S3,     sonar,          sensorSONAR)
 #pragma config(Motor,  motorB,          rightMotor,    tmotorNXT, PIDControl, driveLeft, encoder)
 #pragma config(Motor,  motorC,          leftMotor,     tmotorNXT, PIDControl, driveRight, encoder)
 #pragma platform(NXT)
+
+/// \section Information
+///
+///     Name:          main.c
+///     Author:        Laurens van der Sluis
+///     Studentnumber: 1703647
+///     Date:          28-2-2017
+///
+/// \section doxygen How it works?
+///
+/// This is the code where the hardware is defined and the robot will be started.
 
 #include "header.c"
 

@@ -4,7 +4,7 @@
 ///     Name:          main.c
 ///     Author:        Laurens van der Sluis
 ///     Studentnumber: 1703647
-///     Date:          29-2-2017
+///     Date:          28-2-2017
 ///
 /// \section doxygen How it works?
 ///

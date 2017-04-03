@@ -1,9 +1,7 @@
 /*
 Author: Quentin Hoogwerf
 
-Songs are executable functions. Argument parameter is amount of times song should be looped
-Eg.: playSirene(3) loops the siren sound 3 times.
-
+Songs are executable functions. Tetris loops and must be killed in main.c.
 Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 */
 
@@ -43,11 +41,12 @@ Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 #define A_5 1770
 #define Ash_5 1841
 #define B_5 1995
+#define C_6 2093
 //Duration
 #define Dwhole 200
-#define Whole 100
+#define W 100 // WHOLE
 #define H 50 //half
-#define Q 25 //Quarter
+//#define Q 25 //Quarter
 #define E 13
 #define Sixteenth 8
 
@@ -62,7 +61,7 @@ task playSecret(){
 		{Gsh_4, Sixteenth},
 		{E_5, Sixteenth},
 		{Gsh_5, Sixteenth},
-		{C_5, Sixteenth},
+		{C_6, Sixteenth},
 	};
 	//for (int p=0; p<plays;p++){
 		for (int i=0; i<8; i++){ //change the "i<n" to the new number of notes in the piece
@@ -94,7 +93,11 @@ task playSirene(){
 task playTetris(){
 	int tetris[][]=
 	{
-		{E_5, Q},
+
+
+
+
+	{E_5, Q},
 		{B_4, E},
 		{C_5, E},
 		{D_5, Q},
@@ -132,11 +135,27 @@ task playTetris(){
 		{C_5, Q},
 		{A_4, Q},
 		{A_4, Q},
+		{E_4, H},
+		{C_4, H},
+		{D_4, H},
+		{B_3, H},
+		{C_4, H},
+		{A_3, H},
+		{Gsh_3, W},
+		{E_4, H},
+		{C_4, H},
+		{D_4, H},
+		{B_3, H},
+		{C_4, Q},
+		{E_4, Q},
+		{A_4, Q},
+		{A_4, Q},
+		{Gsh_4, W},
 
 	};
 	//for (int p=0; p<plays;p++){
 	while (true){								//loop is broken via thread killing
-		for (int i=0; i<38; i++){ //change the "i<n" to the new number of notes in the piece
+		for (int i=0; i<54; i++){ //change the "i<n" to the new number of notes in the piece
 			playTone(tetris[i][0], tetris[i][1]);
 			while(bSoundActive) {}
 			wait1Msec(20);
@@ -144,5 +163,3 @@ task playTetris(){
 		wait10Msec(1);
 	}
 }
-
-  //2e deel D_5, F_5, A_5, G_5, F_5, E_5, C_5, E_5, D_5, C_5, B_4, B_4, C_5, D_5, E_5, C_5, A_4, A_4,

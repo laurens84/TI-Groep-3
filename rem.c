@@ -2,10 +2,10 @@
 void rem(int afstand){
 if (afstand <= 7){
 	speed_left = 0;
-			speed_right = 0;
-			motor[motorB] = speed_left;
-			motor[motorC] = speed_right;
-			break;
+		speed_right = 0;
+		motor[motorB] = speed_left;
+		motor[motorC] = speed_right;
+		return;
 }
 if (speed_left > speed_right){
 	speed_right = speed_left;
@@ -16,8 +16,15 @@ clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
 	//om de duizend microseconde word de snelheid bij gewerkt.
 	if (time1[T1] > 350){
-			speed_left = speed_left - (30/ afstand) * 10;
-			speed_right = speed_right - (30/ afstand) * 10;
+		if (afstand <= 10){
+			speed_left = 0;
+			speed_right = 0;
+			motor[motorB] = speed_left;
+			motor[motorC] = speed_right;
+			break;
+		}
+			speed_left = speed_left - (int)   ((30/ afstand) * 10 )* ((((float) SensorValue[BWsensor] - BWMIN) / (BWMAX-BWMIN)));
+			speed_right = speed_right - (int) ((30/ afstand) * 10 )* ((((float) SensorValue[RGBsensor] - RGBMIN) / (RGBMAX-RGBMIN)));
 
 			//checkt als niet 1 van snelheidswaarde niet op min staan
 			if (speed_left < 0){

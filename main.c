@@ -9,9 +9,14 @@
 
 task main() {
   changeSpeedRampingParms(motorA, 15, 5, 15, 5);
+  startTask(bluetooth);
   while (1) {
-  	startTask(bluetooth);
-    collision();
-    lineFollower(leftSensorSpeed(), rightSensorSpeed());
+    while(btCmd != 0) {
+      collision();
+      lineFollower(leftSensorSpeed(), rightSensorSpeed());
+    }
+    if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
+			rem(30);
+		}
   }
 }

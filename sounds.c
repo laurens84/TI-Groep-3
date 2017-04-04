@@ -179,8 +179,9 @@ task playTetris(){
 	}
 }
 
-// test
+/* test
 task main(){
 	startTask(playPause);
 	delay(30000);
 }
+*/

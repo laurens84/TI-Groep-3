@@ -87,6 +87,19 @@ void lineFollower(int left_sensor_speed, int right_sensor_speed){
   	if (left_sensor_speed == LOW_SPEED && right_sensor_speed == LOW_SPEED){	// Crossing detected
 			waitForBTCmd();
   	}
+		// else if (left_sensor_speed == LOW_SPEED && right_sensor_speed == TOP_SPEED){ // 90 left
+		// 	while(rightSensorSpeed() != LOW_SPEED){
+		// 		motor[leftMotor] = TOP_SPEED;
+		// 		motor[rightMotor] = STOP;
+		// 	}
+		// }
+		// else if (left_sensor_speed == TOP_SPEED && right_sensor_speed == LOW_SPEED){ // 90 right
+		// 	while(leftSensorSpeed() != LOW_SPEED){
+		// 		motor[leftMotor] = STOP;
+		// 		motor[rightMotor] = TOP_SPEED;
+		// 	}
+		// }
+
   	else {
 			motor[rightMotor] = speed_left = left_sensor_speed;
 			motor[leftMotor] = speed_right = right_sensor_speed;

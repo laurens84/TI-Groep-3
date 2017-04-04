@@ -45,6 +45,11 @@ void turn(int direction){
 			motor[rightMotor] = STOP;
 			motor[leftMotor] = STOP;
 			break;
+		case front:
+			motor[rightMotor] = 50;
+			motor[leftMotor] = 50;
+			delay(500);
+			break;
 		case back:
 			motor[rightMotor] = 50;
 			motor[leftMotor] = -50;
@@ -62,6 +67,10 @@ void waitForBTCmd(){
 	}
 	else if (btCmd == 'R'){
 		turn(right);
+		btCmd = 0;
+	}
+	else if (btCmd == 'U'){
+		turn(front);
 		btCmd = 0;
 	}
 	else if (btCmd == 'D'){

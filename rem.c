@@ -15,7 +15,7 @@ if (speed_left > speed_right){
 	}
 clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
-		
+
 		if (SensorValue[S3] <= 7){
 			speed_left = 0;
 			speed_right = 0;
@@ -24,7 +24,7 @@ clearTimer(T1);
 			delay(1500);
 			return;
 }
-		
+
 		//om de duizend microseconde word de snelheid bij gewerkt.
 	if (time1[T1] >= 350){
 			speed_left = speed_left -   ((30/ afstand) * 10 );

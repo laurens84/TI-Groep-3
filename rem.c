@@ -1,7 +1,9 @@
 //functie die remt
 void rem(int afstand){
-if (afstand <= 10){
-	speed_left = 0;
+speed_left = motor[rightMotor];
+speed_right = motor[leftMotor];
+	if (afstand <= 10){
+		speed_left = 0;
 		speed_right = 0;
 		motor[motorB] = speed_left;
 		motor[motorC] = speed_right;

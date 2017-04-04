@@ -52,10 +52,6 @@ void turn(int direction){
 			motor[rightMotor] = STOP;
 			motor[leftMotor] = STOP;
 			break;
-		default:
-			motor[rightMotor] = STOP;
-			motor[leftMotor] = STOP;
-			break;
 	}
 }
 
@@ -66,6 +62,10 @@ void waitForBTCmd(){
 	}
 	else if (btCmd == 'R'){
 		turn(right);
+		btCmd = 0;
+	}
+	else if (btCmd == 'D'){
+		turn(back);
 		btCmd = 0;
 	}
 	else {

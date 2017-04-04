@@ -29,14 +29,25 @@ int rightSensorSpeed() // RGBsensor
 	}
 }
 
+void waitForBTCmd(){
+	if (btCmd == 'L'){
+		// turn left
+	}
+	else if (btCmd == 'R'){
+		// turn Right
+	}
+	else {
+		motor[rightMotor] = STOP;
+		motor[leftMotor] = STOP;
+	}
+}
+
 void lineFollower(int left_sensor_speed, int right_sensor_speed){
-  	if (left_sensor_speed == LOW_SPEED && right_sensor_speed == LOW_SPEED){	// Stop voor kruispunt
-  		left_sensor_speed = STOP;
-  		right_sensor_speed = STOP;
+  	if (left_sensor_speed == LOW_SPEED && right_sensor_speed == LOW_SPEED){	// Crossing detected
+			waitForBTCmd();
   	}
   	else {
-  		/*Problemen*/
+			motor[rightMotor] = speed_left = left_sensor_speed;
+			motor[leftMotor] = speed_right = right_sensor_speed;
   	}
-	motor[rightMotor] = speed_left = left_sensor_speed;
-	motor[leftMotor] = speed_right = right_sensor_speed;
 }

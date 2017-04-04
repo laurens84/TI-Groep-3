@@ -26,6 +26,14 @@ int sensorstate = 0;
 int sound = 0;
 
 /*****************linefollower.c********************/
+#define RGBMIN 20	//Black
+#define RGBMAX 60	//White
+
+#define TOP_SPEED 50
+#define LOW_SPEED 5
+
+#define STOP 0
+
 int speed_right = 0;
 int speed_left = 0;
 

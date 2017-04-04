@@ -2,13 +2,6 @@
 	Author: Glenn Koning
 
 */
-#define RGBMIN 20	//Black
-#define RGBMAX 60	//White
-
-#define TOP_SPEED 50
-#define LOW_SPEED 5
-
-#define STOP 0
 
 int leftSensorSpeed() // BWsensor
 {

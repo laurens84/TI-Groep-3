@@ -29,12 +29,44 @@ int rightSensorSpeed() // RGBsensor
 	}
 }
 
+void turn(int direction){
+	switch (direction) {
+		case left:
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = 50;
+			delay(750);
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = STOP;
+			break;
+		case right:
+			motor[rightMotor] = 50;
+			motor[leftMotor] = STOP;
+			delay(750);
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = STOP;
+			break;
+		case back:
+			motor[rightMotor] = 50;
+			motor[leftMotor] = -50;
+			delay(730);
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = STOP;
+			break;
+		default:
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = STOP;
+			break;
+	}
+}
+
 void waitForBTCmd(){
 	if (btCmd == 'L'){
-		// turn left
+		turn(left);
+		btCmd = 0;
 	}
 	else if (btCmd == 'R'){
-		// turn Right
+		turn(right);
+		btCmd = 0;
 	}
 	else {
 		motor[rightMotor] = STOP;

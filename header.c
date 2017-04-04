@@ -21,15 +21,16 @@ int btCmd = 0;
 #define front 0
 #define left 1
 #define right 2
+#define back 3
 
 int sensorstate = 0;
 int sound = 0;
 
 /*****************linefollower.c********************/
 #define RGBMIN 21	//Black
-#define RGBMAX 50	//White
+#define RGBMAX 51	//White
 
-#define TOP_SPEED 40
+#define TOP_SPEED 50
 #define LOW_SPEED 5
 
 #define STOP 0

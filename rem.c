@@ -26,9 +26,9 @@ clearTimer(T1);
 }
 
 		//om de duizend microseconde word de snelheid bij gewerkt.
-	if (time1[T1] >= 350){
-			speed_left = speed_left -   ((30/ afstand) * 10 );
-			speed_right = speed_right - ((30/ afstand) * 10 );
+	if (time1[T1] >= 175){
+			speed_left = speed_left -   ((30/ afstand) * 5 );
+			speed_right = speed_right - ((30/ afstand) * 5 );
 
 			//checkt als niet 1 van snelheidswaarde niet op min staan
 			if (speed_left < 0){

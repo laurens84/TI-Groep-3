@@ -25,7 +25,7 @@ void turn(int direction){
 			delay(730);
       motor[rightMotor] = STOP;
 			motor[leftMotor] = STOP;
-      delay(2500);
+      delay(50);
 			break;
 	}
 }

@@ -10,11 +10,6 @@
 ///
 /// These functions allows you to let the robot look around and detect objects.
 
-void stop (){
-	motor[motorB] = 0;
-	motor[motorC] = 0;
-}
-
 /*! \brief look
  *
  * This function allows you to let the robot look around and detect objects.
@@ -29,12 +24,12 @@ void stop (){
 int look(int d) {
 	if (d == front){
 		if (sensorstate == left) {
-			nMotorEncoderTarget[motorA] = 100;
+			nMotorEncoderTarget[motorA] = 90;
 			motor[motorA] = -85;
 			while (nMotorRunState[motorA] != runStateIdle) {}
 		}
 		else if (sensorstate == right) {
-			nMotorEncoderTarget[motorA] = 100;
+			nMotorEncoderTarget[motorA] = 90;
 			motor[motorA] = 85;
 			while (nMotorRunState[motorA] != runStateIdle) {}
 		}
@@ -42,12 +37,12 @@ int look(int d) {
 	}
 	else if (d == left){
 		if (sensorstate == front){
-			nMotorEncoderTarget[motorA] = 100;
+			nMotorEncoderTarget[motorA] = 90;
 			motor[motorA] = 85;
 			while (nMotorRunState[motorA] != runStateIdle) {}
 		}
 		else if (sensorstate == right){
-			nMotorEncoderTarget[motorA] = 200;
+			nMotorEncoderTarget[motorA] = 180;
 			motor[motorA] = 85;
 			while (nMotorRunState[motorA] != runStateIdle) {}
 		}
@@ -55,12 +50,12 @@ int look(int d) {
 	}
 	else if (d == right){
 		if (sensorstate == front){
-			nMotorEncoderTarget[motorA] = 100;
+			nMotorEncoderTarget[motorA] = 90;
 			motor[motorA] = -85;
 			while (nMotorRunState[motorA] != runStateIdle) {}
 		}
 		else if (sensorstate == left){
-			nMotorEncoderTarget[motorA] = 200;
+			nMotorEncoderTarget[motorA] = 180;
 			motor[motorA] = -85;
 			while (nMotorRunState[motorA] != runStateIdle) {}
 		}
@@ -78,13 +73,70 @@ int look(int d) {
  */
 
 void collision() {
-	while (SensorValue[S3] < 30) {
+	if (SensorValue[S3] < 30) {
 		if (sound == 1) {
 			stopTask(playTetris);
 			sound = 0;
 		}
-		if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
-			rem(SensorValue[S3]);
+		if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)) rem(SensorValue[S3]);
+		startTask(playPause);
+		delay(2000);
+		if (SensorValue[S3] < 30) {
+			while (SensorValue[S3] < 10) {
+				motor[motorB] = -10;
+				motor[motorC] = -10;
+			}
+			startTask(playSirene);
+			if (!look(left)){
+				turn(left);
+				look(right);
+				while (SensorValue[S3] < 30) {
+					motor[motorB] = TOP_SPEED;
+					motor[motorC] = TOP_SPEED;
+				}
+				delay(500);
+				motor[motorB] = STOP;
+				motor[motorC] = STOP;
+				turn(right);
+				while (SensorValue[S3] < 30) {
+					motor[motorB] = TOP_SPEED;
+					motor[motorC] = TOP_SPEED;
+				}
+				delay(500);
+				motor[motorB] = STOP;
+				motor[motorC] = STOP;
+				turn(right45);
+				look(front);
+			}
+			else if (!look(right)){
+				turn(right);
+				look(left);
+				while (SensorValue[S3] < 30) {
+					motor[motorB] = TOP_SPEED;
+					motor[motorC] = TOP_SPEED;
+				}
+				delay(500);
+				motor[motorB] = STOP;
+				motor[motorC] = STOP;
+				turn(left);
+				while (SensorValue[S3] < 30) {
+					motor[motorB] = TOP_SPEED;
+					motor[motorC] = TOP_SPEED;
+				}
+				delay(500);
+				motor[motorB] = STOP;
+				motor[motorC] = STOP;
+				turn(left45);
+				look(front);
+			}
+			else {
+				while (SensorValue[S3] < 20) {
+					motor[motorB] = -10;
+					motor[motorC] = -10;
+				}
+				turn(back);
+				look(forward);
+			}
 		}
 	}
 	if (sound == 0) {

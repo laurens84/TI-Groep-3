@@ -26,9 +26,9 @@ int btCmd = 0;
 int sensorstate = 0;
 int sound = 0;
 /******************navigate.c***********************/
-char matrix_x = 3;
-char matrix_y = 0;
-char direction_faced = back;
+char matrix_x = 2;
+char matrix_y = 1;
+char direction_faced = left
 
 /*****************linefollower.c********************/
 #define RGBMIN 22	//Black

@@ -1,7 +1,7 @@
 /*
 	Author: Quentin Hoogwerf
-	Starts loop which polls for new message every 100ms. Depending on what message is sent with Bluetooth Android app (available from HU Sharepoint),
-	global variable 'btCmd' value is changed:
+	Starts loop which polls for new message every 100ms. Depending on what message is sent with
+	Bluetooth Android app (available from HU Sharepoint), global variable 'btCmd' value is changed:
 
 	Bt message	Variable
 	LEFT: 			'L'
@@ -11,7 +11,7 @@
 	FIRE:				 0
 	A:					 0
 	B:					 0
-	C:					 0
+	C:					'C'
 
 */
 
@@ -51,11 +51,15 @@ task bluetooth()
     		btCmd = 'D';
     	}else if (s == "C"){
     		btCmd = 'C';
-    	}else{
+      }else if (s == "FIRE"){
+        playTone(1054, 25);
+        s="";
+      }else{
     		btCmd = 0;
 			}
     }
   }
-    wait1Msec(100);
+  eraseDisplay();
+  wait1Msec(100);
   return;
 }

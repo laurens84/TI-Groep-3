@@ -5,46 +5,46 @@ Songs are executable functions. Tetris loops and must be killed in main.c.
 Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 */
 
-#define C_3 261
+#define C_3 	261
 #define Csh_3 275
-#define D_3 293
+#define D_3 	293
 #define Dsh_3 310
-#define E_3 329
-#define F_3 348
+#define E_3 	329
+#define F_3 	348
 #define Fsh_3 370
-#define G_3 392
+#define G_3 	392
 #define Gsh_3 412
-#define A_3 440
+#define A_3 	440
 #define Ash_3 466
-#define B_3 496
-#define C_4 524
+#define B_3 	496
+#define C_4 	524
 #define Csh_4 555
-#define D_4 590
+#define D_4 	590
 #define Dsh_4 621
-#define E_4 656
-#define F_4 695
+#define E_4 	656
+#define F_4 	695
 #define Fsh_4 738
-#define G_4 788
+#define G_4 	788
 #define Gsh_4 830
-#define A_4 877
+#define A_4 	877
 #define Ash_4 929
-#define B_4 987
-#define C_5 1054
+#define B_4 	987
+#define C_5 	1054
 #define Csh_5 1104
-#define D_5 1188
+#define D_5 	1188
 #define Dsh_5 1251
-#define E_5 1322
-#define F_5 1401
+#define E_5 	1322
+#define F_5 	1401
 #define Fsh_5 1488
-#define G_5 1590
+#define G_5 	1590
 #define Gsh_5 1646
-#define A_5 1770
+#define A_5 	1770
 #define Ash_5 1841
-#define B_5 1995
-#define C_6 2093
+#define B_5 	1995
+#define C_6 	2093
 //Duration
 #define Dwhole 200
-#define W 100 // WHOLE
+#define W 100 // Whole
 #define H 50 //half
 #define Q 25 //Quarter
 #define E 13

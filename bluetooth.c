@@ -56,6 +56,11 @@ task bluetooth()
 			}
     }
   }
-    wait1Msec(100);
+  eraseDisplay();
+  wait1Msec(100);
   return;
+}
+
+task main(){
+	startTask(bluetooth);
 }

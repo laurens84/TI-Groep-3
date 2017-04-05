@@ -57,6 +57,20 @@ void turn(int direction){
 			motor[rightMotor] = STOP;
 			motor[leftMotor] = STOP;
 			break;
+		case left45:
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = 50;
+			delay(375);
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = STOP;
+			break;
+		case right45:
+			motor[rightMotor] = 50;
+			motor[leftMotor] = STOP;
+			delay(375);
+			motor[rightMotor] = STOP;
+			motor[leftMotor] = STOP;
+			break;
 	}
 }
 

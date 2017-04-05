@@ -1,5 +1,5 @@
 void navigate() {
-  if (matrix_x > 0){
+  if (matrix_x > 1){
     switch (direction_faced) {
       case front:
         turn(right);
@@ -18,7 +18,7 @@ void navigate() {
     direction_faced = right;
     matrix_x--;
   }
-//  else if (matrix_y > 0) {
+//else if (matrix_y > 0) {
     //turn(front);
     //matrix_y--;
   //}

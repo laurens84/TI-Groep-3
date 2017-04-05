@@ -68,6 +68,21 @@ task playPause(){
 	//}
 }
 
+task playReverse(){
+		int reverse[][]=
+		{
+			{1000, 1000},
+		};
+		//for (int p=0; p<plays;p++){
+		while (true){								//loop is broken via thread killing
+			for (int i=0; i<1; i++){ //change the "i<n" to the new number of notes in the piece
+				playTone(reverse[i][0], reverse[i][1]);
+				while(bSoundActive) {}
+				wait1Msec(990);
+			}
+			wait1Msec(10);
+		}
+	}
 
 task playSecret(){
 
@@ -109,6 +124,7 @@ task playSirene(){
 		}
 	//}
 }
+
 task playTetris(){
 	int tetris[][]=
 	{
@@ -175,7 +191,7 @@ task playTetris(){
 			while(bSoundActive) {}
 			wait1Msec(20);
 		}
-		wait10Msec(1);
+		wait1Msec(10);
 	}
 }
 

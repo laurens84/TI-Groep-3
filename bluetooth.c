@@ -50,7 +50,7 @@ task bluetooth()
     	}else if (s == "DOWN"){
     		btCmd = 'D';
     	}else if (s == "C"){
-    		btCmd = 'C';
+    		btCmd = -1;
       }else if (s == "FIRE"){
         playTone(1054, 25);
         s="";

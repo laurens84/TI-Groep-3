@@ -34,7 +34,7 @@ int rightSensorSpeed() // RGBsensor
 
 
 void lineFollower(int left_sensor_speed, int right_sensor_speed){
-  	if (left_sensor_speed == LOW_SPEED && right_sensor_speed == LOW_SPEED){	// Crossing detected
+  		if (left_sensor_speed == LOW_SPEED || right_sensor_speed == LOW_SPEED){	// Crossing detected
 			navigate();
   	}
 

@@ -17,23 +17,23 @@ void navigate() {
     }
     direction_faced = right;
     matrix_x--;
-  }
-else if (matrix_y > 1) {
-  switch (direction_faced) {
-    case front:
-      turn(front);
-      break;
-    case left:
-      turn(right);
-      break;
-    case right:
-      turn(left);
-      break;
-    case back:
-      turn(back);
-      matrix_y++;
-      break;
-  }
+
+  } else if (matrix_y > 0) {
+    switch (direction_faced) {
+      case front:
+        turn(front);
+        break;
+      case left:
+        turn(right);
+        break;
+      case right:
+        turn(left);
+        break;
+      case back:
+        turn(back);
+        matrix_y++;
+        break;
+    }
 direction_faced = front;
 matrix_y--;
 }

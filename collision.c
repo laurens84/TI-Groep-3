@@ -135,7 +135,7 @@ void collision() {
 					motor[motorC] = -10;
 				}
 				turn(back);
-				look(forward);
+				look(front);
 			}
 		}
 	}

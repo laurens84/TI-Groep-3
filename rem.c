@@ -10,9 +10,9 @@
  *
  */
 void rem(int afstand){
-/*
 speed_left = motor[rightMotor];
 speed_right = motor[leftMotor];
+/*
 	if (afstand <= 7){
 		speed_left = 0;
 		speed_right = 0;

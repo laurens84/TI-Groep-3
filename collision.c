@@ -94,7 +94,7 @@ void collision() {
 			if (!look(left)){
 				turn(left);
 				look(right);
-				while (rightSensorSpeed() != RGBMIN && leftSensorSpeed() != RGBMIN) {
+				while (SensorValue[RGBRsensor] != RSMIN && SensorValue[RGBLsensor] != LSMIN) {
 					motor[motorC] = 10;
 					if (SensorValue[S3] < 30) motor[motorB] = (SensorValue[S3]);
 					else motor[motorB] = 30;
@@ -105,7 +105,7 @@ void collision() {
 			else if (!look(right)){
 				turn(right);
 				look(left);
-				while (rightSensorSpeed() != RGBMIN && leftSensorSpeed() != RGBMIN) {
+				while (SensorValue[RGBRsensor] != RSMIN && SensorValue[RGBLsensor] != LSMIN) {
 					motor[motorB] = 10;
 					if (SensorValue[S3] < 30) motor[motorC] = (SensorValue[S3]);
 					else motor[motorC] = 30;

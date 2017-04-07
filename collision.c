@@ -82,51 +82,35 @@ void collision() {
 		startTask(playPause);
 		delay(2000);
 		if (SensorValue[S3] < 30) {
-			while (SensorValue[S3] < 10) {
+			while (SensorValue[S3] < 20) {
 				motor[motorB] = -10;
 				motor[motorC] = -10;
+			}
+			while (SensorValue[S3] > 20) {
+				motor[motorB] = 10;
+				motor[motorC] = 10;
 			}
 			startTask(playSirene);
 			if (!look(left)){
 				turn(left);
 				look(right);
-				while (SensorValue[S3] < 30) {
-					motor[motorB] = TOP_SPEED;
-					motor[motorC] = TOP_SPEED;
+				while (rightSensorSpeed() != RGBMIN && leftSensorSpeed() != RGBMIN) {
+					motor[motorC] = 10;
+					if (SensorValue[S3] < 30) motor[motorB] = (SensorValue[S3]);
+					else motor[motorB] = 30;
 				}
-				delay(500);
-				motor[motorB] = STOP;
-				motor[motorC] = STOP;
-				turn(right);
-				while (SensorValue[S3] < 30) {
-					motor[motorB] = TOP_SPEED;
-					motor[motorC] = TOP_SPEED;
-				}
-				delay(500);
-				motor[motorB] = STOP;
-				motor[motorC] = STOP;
-				turn(right45);
+				turn(left);
 				look(front);
 			}
 			else if (!look(right)){
 				turn(right);
 				look(left);
-				while (SensorValue[S3] < 30) {
-					motor[motorB] = TOP_SPEED;
-					motor[motorC] = TOP_SPEED;
+				while (rightSensorSpeed() != RGBMIN && leftSensorSpeed() != RGBMIN) {
+					motor[motorB] = 10;
+					if (SensorValue[S3] < 30) motor[motorC] = (SensorValue[S3]);
+					else motor[motorC] = 30;
 				}
-				delay(500);
-				motor[motorB] = STOP;
-				motor[motorC] = STOP;
-				turn(left);
-				while (SensorValue[S3] < 30) {
-					motor[motorB] = TOP_SPEED;
-					motor[motorC] = TOP_SPEED;
-				}
-				delay(500);
-				motor[motorB] = STOP;
-				motor[motorC] = STOP;
-				turn(left45);
+				turn(right);
 				look(front);
 			}
 			else {

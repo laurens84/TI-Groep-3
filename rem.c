@@ -1,8 +1,19 @@
-//functie die remt
+/// @file
+
+/*! \brief Een functie die de robot rustig laat remmen
+ *
+ * de fucntie gaat gelijdelijk aan de hand van een formule de snelheid afnemen
+ * als een object dichter bij is dan 7 cm woorden de motors op 0 gezet.
+ *
+ *
+ * \param[in] Int afstand de afstnd tot het object gemeten door sensor 3
+ *
+ */
 void rem(int afstand){
+/*
 speed_left = motor[rightMotor];
 speed_right = motor[leftMotor];
-	if (afstand <= 10){
+	if (afstand <= 7){
 		speed_left = 0;
 		speed_right = 0;
 		motor[motorB] = speed_left;
@@ -15,6 +26,7 @@ if (speed_left > speed_right){
 } else {
 	speed_left = speed_right;
 	}
+	*/
 clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
 

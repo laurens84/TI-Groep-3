@@ -51,8 +51,8 @@ clearTimer(T1);
 			if (speed_right < 0){
 			speed_right = 0;
 			}
-			motor[motorB] = (int) (speed_left * ((((float) SensorValue[RGBLsensor] - RGBMIN) / (RGBMAX-RGBMIN))));
-			motor[motorC] = (int) (speed_right * ((((float) SensorValue[RGBRsensor] - RGBMIN) / (RGBMAX-RGBMIN))));
+			motor[motorB] = (int) (speed_left * ((((float) SensorValue[RGBLsensor] - SLMIN) / (SLMAX-SLMIN))));
+			motor[motorC] = (int) (speed_right * ((((float) SensorValue[RGBRsensor] - SRMIN) / (SRMAX-SRMIN))));
 			clearTimer(T1);
 		}
 		}

@@ -20,13 +20,13 @@ speed_right = motor[leftMotor];
 		motor[motorC] = speed_right;
 		return;
 }
-
+*/
 if (speed_left > speed_right){
 	speed_right = speed_left;
 } else {
 	speed_left = speed_right;
 	}
-	*/
+
 clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
 

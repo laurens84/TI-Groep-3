@@ -12,15 +12,13 @@
 void rem(int afstand){
 speed_left = motor[rightMotor];
 speed_right = motor[leftMotor];
-/*
-	if (afstand <= 7){
+	if (afstand <= 1){
 		speed_left = 0;
 		speed_right = 0;
 		motor[motorB] = speed_left;
 		motor[motorC] = speed_right;
 		return;
 }
-*/
 if (speed_left > speed_right){
 	speed_right = speed_left;
 } else {
@@ -52,7 +50,7 @@ clearTimer(T1);
 			speed_right = 0;
 			}
 			motor[motorB] = (int) (speed_left * ((((float) SensorValue[RGBLsensor] - SLMIN) / (SLMAX-SLMIN))));
-			motor[motorC] = (int) (speed_right * ((((float) SensorValue[RGBRsensor] - SRMIN) / (SRMAX-SRMIN))));
+			motor[motorC] = (int) (speed_right *((((float) SensorValue[RGBRsensor] - SRMIN) / (SRMAX-SRMIN))));
 			clearTimer(T1);
 		}
 		}

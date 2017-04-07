@@ -2,30 +2,79 @@
 	Author: Glenn Koning
 
 */
-
-int leftSensorSpeed() // BWsensor
+void leftSensorSpeed(int SensorValueLeft) // RGBsensor left
 {
-	if (SensorValue[RGBLsensor] <= RGBMIN){
-		return LOW_SPEED;
+	if (SensorValueLeft <= SLMIN){
+		if (left_speed < STOP){
+			left_speed++;
+		}
+		else if (left_speed > STOP){
+			left_speed--;
+		}
+		else{
+			left_speed = STOP;
+		}
 	}
-	else if (SensorValue[RGBLsensor] >= RGBMAX){
-		return TOP_SPEED;
+	else if (SensorValueLeft >= SLMAX){
+		if (left_speed < SPEED){
+			left_speed++;
+		}
+		else if (left_speed > SPEED){
+			left_speed--;
+		}
+		else{
+			left_speed = SPEED;
+		}
 	}
 	else {
-		return (int)((((float)SensorValue[RGBLsensor] - RGBMIN) / (RGBMAX-RGBMIN)) * TOP_SPEED);
+		int value = (int)((((float)SensorValueLeft - SLMIN) / (SLMAX-SLMIN)) * SPEED);
+		if (left_speed < value){
+			left_speed++;
+		}
+		else if (left_speed > value){
+			left_speed--;
+		}
+		else{
+			left_speed = value;
+		}
 	}
 }
 
-int rightSensorSpeed() // RGBsensor
+void rightSensorSpeed(int SensorValueRight) // RGBsensor right
 {
-	if (SensorValue[RGBRsensor] <= RGBMIN){
-		return LOW_SPEED;
+	if (SensorValueRight <= SRMIN){
+		if (right_speed < STOP){
+			right_speed++;
+		}
+		else if (right_speed > STOP){
+			right_speed--;
+		}
+		else{
+			right_speed = STOP;
+		}
 	}
-	else if (SensorValue[RGBRsensor] >= RGBMAX){
-		return TOP_SPEED;
+	else if (SensorValueRight >= SRMAX){
+		if (right_speed < SPEED){
+			right_speed++;
+		}
+		else if (right_speed > SPEED){
+			right_speed--;
+		}
+		else{
+			right_speed = SPEED;
+		}
 	}
 	else {
-		return (int)((((float)SensorValue[RGBRsensor] - RGBMIN) / (RGBMAX-RGBMIN)) * TOP_SPEED);
+		int value = (int)((((float)SensorValueRight - SRMIN) / (SRMAX-SRMIN)) * SPEED);
+		if (right_speed < value){
+			right_speed++;
+		}
+		else if (right_speed > value){
+			right_speed--;
+		}
+		else{
+			right_speed = value;
+		}
 	}
 }
 
@@ -75,6 +124,10 @@ void turn(int direction){
 }
 
 void waitForBTCmd(){
+	while (btCmd == 0){
+		motor[rightMotor] = STOP;
+		motor[leftMotor] = STOP;
+	}
 	if (btCmd == 'L'){
 		turn(left);
 		btCmd = 0;
@@ -94,28 +147,19 @@ void waitForBTCmd(){
 	else {
 		motor[rightMotor] = STOP;
 		motor[leftMotor] = STOP;
+		btCmd = 0;
+		// rem(10);
 	}
 }
 
-void lineFollower(int left_sensor_speed, int right_sensor_speed){
-  	if (left_sensor_speed == LOW_SPEED && right_sensor_speed == LOW_SPEED){	// Crossing detected
-			waitForBTCmd();
-  	}
-		// else if (left_sensor_speed == LOW_SPEED && right_sensor_speed == TOP_SPEED){ // 90 left
-		// 	while(rightSensorSpeed() != LOW_SPEED){
-		// 		motor[leftMotor] = TOP_SPEED;
-		// 		motor[rightMotor] = STOP;
-		// 	}
-		// }
-		// else if (left_sensor_speed == TOP_SPEED && right_sensor_speed == LOW_SPEED){ // 90 right
-		// 	while(leftSensorSpeed() != LOW_SPEED){
-		// 		motor[leftMotor] = STOP;
-		// 		motor[rightMotor] = TOP_SPEED;
-		// 	}
-		// }
-
-  	else {
-			motor[rightMotor] = speed_left = left_sensor_speed;
-			motor[leftMotor] = speed_right = right_sensor_speed;
-  	}
+void lineFollower(){
+	leftSensorSpeed(SensorValue[RGBLsensor]);
+	rightSensorSpeed(SensorValue[RGBRsensor]);
+	if (SensorValue[RGBLsensor] <= SLMIN && SensorValue[RGBRsensor] <= SRMIN){	// Crossing detected
+		waitForBTCmd();
+	}
+	else {
+		motor[rightMotor] = right_speed;
+		motor[leftMotor] = left_speed;
+	}
 }

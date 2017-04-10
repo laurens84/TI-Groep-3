@@ -1,18 +1,6 @@
-/*
+/*! @file
+ \mainpage Author Information
 	Author: Quentin Hoogwerf
-	Starts loop which polls for new message every 100ms. Depending on what message is sent with
-	Bluetooth Android app (available from HU Sharepoint), global variable 'btCmd' value is changed:
-
-	Bt message	Variable
-	LEFT: 			'L'
-	Right:			'R'
-	UP:					'U'
-	DOWN:				'D'
-	FIRE:				 0
-	A:					 0
-	B:					 0
-	C:					'C'
-
 */
 
 #pragma platform(NXT)
@@ -20,6 +8,23 @@
 	//long nDeltaTime         = 0;
 	//const int kMaxSizeOfMessage = 30;
 	//const int INBOX = 5;
+
+/*! \brief bluetooth
+ *
+ * Starts loop which polls for new message every 100ms. Depending on what message is sent with
+ * Bluetooth Android app (available from HU Sharepoint), global variable 'btCmd' value is changed:
+ *
+ *	Bt message	Variable
+ *	LEFT: 			'L'
+ *	Right:			'R'
+ *	UP:					'U'
+ *	DOWN:				'D'
+ *	FIRE:				 [plays a tome to simulate a honking horn]
+ *	A:					 0
+ *	B:					 0
+ *	C:					'C'
+ *
+ */
 
 task bluetooth()
 {

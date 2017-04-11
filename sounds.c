@@ -1,8 +1,10 @@
-/*
-Author: Quentin Hoogwerf
+/*! @file
+ \mainpage Author Information
+	Quentin Hoogwerf
 
-Songs are executable functions. Tetris loops and must be killed in main.c.
-Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
+\section The Defines
+Defines are the frequency or duration of musical notes. Number is the octave scale. 'Csh', 'Dsh' etc is sharp of that note (C#, D#).
+The duration is either a double, whole, half, quarter, eighth or sixteenth note, measured in milliseconds.
 */
 
 #define C_3 	261
@@ -45,11 +47,16 @@ Defines are actual musical notes. Number is the octave scale. Csh is C# (sharp).
 //Duration
 #define Dwhole 200
 #define W 100 // Whole
-#define H 50 //half
-#define Q 25 //Quarter
+#define H 50 // half
+#define Q 25 // Quarter
 #define E 13
 #define Sixteenth 8
 
+/*! \brief playPause
+ *
+ * Plays the pause sound from Super Mario Bros. 
+ *
+ */
 task playPause(){
 
 	int pause[][]=
@@ -68,6 +75,11 @@ task playPause(){
 	//}
 }
 
+/*! \brief playReverse
+ *
+ * Plays the noise of a reversing truck in a while loop. Loop must be broken bij thread killing after being called. 
+ *
+ */
 task playReverse(){
 		int reverse[][]=
 		{
@@ -84,6 +96,11 @@ task playReverse(){
 		}
 	}
 
+/*! \brief playSecret
+ *
+ * Plays the secret unlocked sound from The Legend of Zelda. 
+ *
+ */
 task playSecret(){
 
 	int secret[][]=
@@ -106,6 +123,11 @@ task playSecret(){
 	//}
 }
 
+/*! \brief playSirene
+ *
+ * Plays the sound of a siren. 
+ *
+ */
 task playSirene(){
 
 	int sirene[][]=
@@ -124,7 +146,11 @@ task playSirene(){
 		}
 	//}
 }
-
+/*! \brief playReverse
+ *
+ * Plays the song from Tetris (Korobeinki) in a while loop. Loop must be broken bij thread killing after being called. 
+ *
+ */
 task playTetris(){
 	int tetris[][]=
 	{
@@ -195,6 +221,7 @@ task playTetris(){
 	}
 }
 
+//uncomment for testing purposes outside of main.c
 /* test
 task main(){
 	startTask(playPause);

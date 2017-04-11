@@ -37,7 +37,7 @@ task main() {
   while (1) {
     while(btCmd != -1) {
       collision();
-      lineFollower(leftSensorSpeed(), rightSensorSpeed());
+      lineFollower();
     }
     if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
 			rem(30);

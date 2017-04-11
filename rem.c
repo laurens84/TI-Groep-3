@@ -1,7 +1,19 @@
-//functie die remt
+/// @file
+
+/*! \brief Een functie die de robot rustig laat remmen
+ *
+ * de fucntie gaat gelijdelijk aan de hand van een formule de snelheid afnemen
+ * als een object dichter bij is dan 7 cm woorden de motors op 0 gezet.
+ *
+ *
+ * \param[in] Int afstand de afstnd tot het object gemeten door sensor 3
+ *
+ */
 void rem(int afstand){
-speed_left = motor[rightMotor];
-speed_right = motor[leftMotor];
+speed_left = motor[leftMotor];
+speed_right = motor[rightMotor];
+motor[leftMotor] = (int) (speed_left * ((((float) SensorValue[RGBLsensor] - SLMIN) / (SLMAX-SLMIN))));
+motor[rightMotor] = (int) (speed_right * ((((float) SensorValue[RGBRsensor] - SRMIN) / (SRMAX-SRMIN))));
 	if (afstand <= 10){
 		speed_left = 0;
 		speed_right = 0;
@@ -9,12 +21,12 @@ speed_right = motor[leftMotor];
 		motor[motorC] = speed_right;
 		return;
 }
-
 if (speed_left > speed_right){
 	speed_right = speed_left;
 } else {
 	speed_left = speed_right;
 	}
+
 clearTimer(T1);
 	while (speed_left > 0 && speed_right > 0){
 
@@ -39,8 +51,8 @@ clearTimer(T1);
 			if (speed_right < 0){
 			speed_right = 0;
 			}
-			motor[motorB] = (int) (speed_left * ((((float) SensorValue[RGBLsensor] - RGBMIN) / (RGBMAX-RGBMIN))));
-			motor[motorC] = (int) (speed_right * ((((float) SensorValue[RGBRsensor] - RGBMIN) / (RGBMAX-RGBMIN))));
+			motor[leftMotor] = (int) (speed_left * ((((float) SensorValue[RGBLsensor] - SLMIN) / (SLMAX-SLMIN))));
+			motor[rightMotor] = (int) (speed_right * ((((float) SensorValue[RGBRsensor] - SRMIN) / (SRMAX-SRMIN))));
 			clearTimer(T1);
 		}
 		}

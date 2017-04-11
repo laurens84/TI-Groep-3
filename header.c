@@ -29,20 +29,24 @@ int sensorstate = 0;
 int sound = 0;
 
 /*****************linefollower.c********************/
-#define RGBMIN 22	//Black
-#define RGBMAX 52	//White
+#define SLMIN 18	//Black
+#define SLMAX 59	//White
 
-#define TOP_SPEED 40
-#define LOW_SPEED 5
+#define SRMIN 22	//Black
+#define SRMAX 55	//White
 
+#define SPEED 40
 #define STOP 0
 
 int speed_right = 0;
 int speed_left = 0;
 
+int left_speed = 0;
+int right_speed = 0;
+
 /*******************includes************************/
 #include "bluetooth.c"
 #include "sounds.c"
-#include "linefollower.c"
 #include "rem.c"
+#include "linefollower.c"
 #include "collision.c"

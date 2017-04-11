@@ -193,8 +193,7 @@ void waitForBTCmd(){
 /*!	\brief LineFollower to follow the black line.
  *
  *  Roept de leftSensorSpeed en rightSensorSpeed functie aan om de waardes van speed_left en speed_right te updaten.
- *  Als beide sensoren de zwarte lijn zien zal de robot een kruising detecteren en wordt de waitForBTCmd functie aangeroepen.
- *  Anders worden de motoren met de snelheidswaardes uit speed_left en speed_right aangestuurd.
+ *  Daarna worden de waardes van speed_left en speed_right naar de motoren geschreven.
  */
 
 void lineFollower(){

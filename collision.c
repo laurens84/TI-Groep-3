@@ -82,6 +82,7 @@ void collision() {
 		startTask(playPause);
 		delay(2000);
 		if (SensorValue[S3] < 30) {
+			object = 1;
 			while (SensorValue[S3] < 20) {
 				motor[motorB] = -10;
 				motor[motorC] = -10;
@@ -99,7 +100,10 @@ void collision() {
 					if (SensorValue[S3] < 30) motor[motorB] = (SensorValue[S3]);
 					else motor[motorB] = 30;
 				}
-				turn(left);
+				turn(left_until);
+				delay(50);
+				motor[motorB] = STOP;
+				motor[motorC] = STOP;
 				look(front);
 			}
 			else if (!look(right)){
@@ -110,7 +114,10 @@ void collision() {
 					if (SensorValue[S3] < 30) motor[motorC] = (SensorValue[S3]);
 					else motor[motorC] = 30;
 				}
-				turn(right);
+				turn(right_until);
+				delay(50);
+				motor[motorB] = STOP;
+				motor[motorC] = STOP;
 				look(front);
 			}
 			else {
@@ -121,6 +128,7 @@ void collision() {
 				turn(back);
 				look(front);
 			}
+			object = 0;
 		}
 	}
 	if (sound == 0) {

@@ -22,8 +22,8 @@ int btCmd = 0;
 #define left 1
 #define right 2
 #define back 3
-#define left45 4
-#define right45 5
+#define left_until 4
+#define right_until 5
 
 int sensorstate = 0;
 int sound = 0;
@@ -33,7 +33,7 @@ int sound = 0;
 #define SLMAX 59	//White
 
 #define SRMIN 22	//Black
-#define SRMAX 55	//White
+#define SRMAX 52	//White
 
 #define SPEED 40
 #define STOP 0

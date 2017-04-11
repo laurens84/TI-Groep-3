@@ -126,7 +126,7 @@ void turn(int direction){
 		case front:
 			motor[rightMotor] = 50;
 			motor[leftMotor] = 50;
-			delay(500);
+			delay(200);
 			break;
 		case back:
 			motor[rightMotor] = 50;
@@ -135,19 +135,23 @@ void turn(int direction){
 			motor[rightMotor] = STOP;
 			motor[leftMotor] = STOP;
 			break;
-		case left45:
-			motor[rightMotor] = STOP;
+		case left_until:
 			motor[leftMotor] = 50;
-			delay(375);
 			motor[rightMotor] = STOP;
-			motor[leftMotor] = STOP;
+			delay(200);
+			while (SensorValue[RGBRsensor] != SRMIN){
+				motor[leftMotor] = 50;
+				motor[rightMotor] = STOP;
+			}
 			break;
-		case right45:
+		case right_until:
 			motor[rightMotor] = 50;
 			motor[leftMotor] = STOP;
-			delay(375);
-			motor[rightMotor] = STOP;
-			motor[leftMotor] = STOP;
+			delay(200);
+			while (SensorValue[RGBLsensor] != SLMIN){
+				motor[rightMotor] = 50;
+				motor[leftMotor] = STOP;
+			}
 			break;
 	}
 }
@@ -163,11 +167,11 @@ void waitForBTCmd(){
 		motor[leftMotor] = STOP;
 	}
 	if (btCmd == 'L'){					// turn left
-		turn(left);
+		turn(left_until);
 		btCmd = 0;
 	}
 	else if (btCmd == 'R'){			// turn right
-		turn(right);
+		turn(right_until);
 		btCmd = 0;
 	}
 	else if (btCmd == 'U'){			// forwards

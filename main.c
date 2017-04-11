@@ -20,6 +20,12 @@
 
 #include "header.c"
 
+task collfollow() {
+  while(1) {
+    collision();
+    lineFollower();
+  }
+}
 /*! \brief main
  *
  * The robot will wait before the command to start is given.
@@ -32,19 +38,37 @@
  */
 
 task main() {
+  int collfollowrunning = 0;
   changeSpeedRampingParms(motorA, 15, 5, 15, 5);
   startTask(bluetooth);
   while (1) {
-    while(btCmd != -1) {
-      collision();
-      lineFollower();
+    if (btCmd == -1){
+      if (collfollowrunning == 1) {
+        stopTask(collfollow);
+        collfollowrunning = 0;
+        if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
+          rem(30);
+        }
+        if (sound == 1) {
+          stopTask(playTetris);
+          sound = 0;
+        }
+      }
     }
-    if ((nMotorRunState[motorB] != runStateIdle) || (nMotorRunState[motorC] != runStateIdle)){
-			rem(30);
-		}
-    if (sound == 1) {
-			stopTask(playTetris);
-			sound = 0;
-		}
+    else if (collfollowrunning == 0){
+      look(front);
+      object = 0;
+      startTask(collfollow);
+      collfollowrunning = 1;
+    }
+    if ((SensorValue[RGBLsensor] <= SLMIN && SensorValue[RGBRsensor] <= SRMIN) && object == 0){	// Crossing detected
+      stopTask(collfollow);
+      collfollowrunning = 0;
+  		waitForBTCmd();
+  	}
+    else if (collfollowrunning == 0) {
+      startTask(collfollow);
+      collfollowrunning = 1;
+    }
   }
 }

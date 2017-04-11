@@ -27,6 +27,7 @@ int btCmd = 0;
 
 int sensorstate = 0;
 int sound = 0;
+int object = 0;
 
 /*****************linefollower.c********************/
 #define SLMIN 18	//Black

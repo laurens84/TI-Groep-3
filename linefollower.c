@@ -200,11 +200,6 @@ void waitForBTCmd(){
 void lineFollower(){
 	leftSensorSpeed(SensorValue[RGBLsensor]);
 	rightSensorSpeed(SensorValue[RGBRsensor]);
-	if (SensorValue[RGBLsensor] <= SLMIN && SensorValue[RGBRsensor] <= SRMIN){	// Crossing detected
-		waitForBTCmd();
-	}
-	else {
-		motor[rightMotor] = speed_right;
-		motor[leftMotor] = speed_left;
-	}
+	motor[rightMotor] = speed_right;
+	motor[leftMotor] = speed_left;
 }

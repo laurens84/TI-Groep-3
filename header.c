@@ -41,9 +41,6 @@ int sound = 0;
 int speed_right = 0;
 int speed_left = 0;
 
-int left_speed = 0;
-int right_speed = 0;
-
 /*******************includes************************/
 #include "bluetooth.c"
 #include "sounds.c"

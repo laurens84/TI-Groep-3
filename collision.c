@@ -66,11 +66,18 @@ int look(int d) {
 }
 
 /*! \brief collision
- *
- * This function checks if there is an object within 30CM.
- * If there is an object nearby it wil stop the robot and the music.
- *
- */
+*
+* This function checks if there is an object within 30CM.
+* If there is an object nearby it wil stop the robot and the music.
+* It will then wait for two seconds. If the object is still there after two seconds, the robot will go and drive around it.
+* It will do this by turning his sensor looking if there is room for him to go that way.
+* If there is no room for him at his left and right, it will turn around and go back.
+* However, if there is room for him, he wil turn left or right(depending on where there is room for him to go)
+* The sensor will then turn to the object again and the robot will control it's motors depending on how close he is to the object.
+* If the robot sees the line again, it wil stop looking at the object and get himself back on track.
+* The music will also begin to play again.
+*
+*/
 
 void collision() {
 	if (SensorValue[S3] < 30) {

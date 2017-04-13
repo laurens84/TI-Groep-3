@@ -20,6 +20,14 @@
 
 #include "header.c"
 
+/*! \brief collfollow
+ *
+ * This task gives us an seperate thread where we can run the collision and lineFollower functions.
+ * the robot will first check if there is an object in the way.
+ * The robot will then start to follow the line as long as there is no object detected.
+ *
+ */
+
 task collfollow() {
   while(1) {
     collision();
@@ -29,11 +37,11 @@ task collfollow() {
 /*! \brief main
  *
  * The robot will wait before the command to start is given.
- * When the start command is given the robot will first check if there is an object in the way.
- * The robot will start to follow the line as long as there is no object detected.
+ * When the start command is given, the task collfolow will be started if it's not running yet.
+ * It will then constantly check if there is an crossing detected or if the bluetooth command to stop is given.
  *
- * If the command to stop is given, the robot will stop. If there was music playing, that will stop aswell.
- * Now the robot again, will wait for the command to start.
+ * If the command to stop is given, the robot will stop carefully. If there was music playing, that will stop aswell.
+ * Now the robot will wait for the command to start again.
  *
  */
 
